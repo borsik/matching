@@ -7,8 +7,8 @@ case class Order(client: String,
                  price: Int,
                  amount: Int)
 
-case class Buy(security: String, price: Int, amount: Int)
-case class Sell(security: String, price: Int, amount: Int)
+case class Buy(sec: String, price: Int, amount: Int)
+case class Sell(sec: String, price: Int, amount: Int)
 
 case object Show
 
@@ -26,15 +26,15 @@ case class ClientActor(name: String,
                        D: Int)
     extends Actor {
 
-  var balanceDollar = dollars
-  var balanceA = A
-  var balanceB = B
-  var balanceC = C
-  var balanceD = D
+  var balanceDollar: Int = dollars
+  var balanceA: Int = A
+  var balanceB: Int = B
+  var balanceC: Int = C
+  var balanceD: Int = D
 
   override def receive: Receive = {
     case b: Buy =>
-      b.security match {
+      b.sec match {
         case "A" => balanceA += b.amount
         case "B" => balanceB += b.amount
         case "C" => balanceC += b.amount
@@ -43,7 +43,7 @@ case class ClientActor(name: String,
       balanceDollar -= b.price * b.amount
 
     case s: Sell =>
-      s.security match {
+      s.sec match {
         case "A" => balanceA -= s.amount
         case "B" => balanceB -= s.amount
         case "C" => balanceC -= s.amount
