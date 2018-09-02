@@ -1,7 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Scala template
-*.log
-
 .idea/
 target/
+project/
 result.txt
