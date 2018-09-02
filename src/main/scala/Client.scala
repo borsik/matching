@@ -1,6 +1,8 @@
 import akka.actor.Actor
 
-case class Client(name: String, dollars: Int, A: Int, B: Int, C: Int, D: Int)
+case class Client(name: String, dollars: Int, A: Int, B: Int, C: Int, D: Int)  {
+  override def toString: String = s"$name $dollars $A $B $C $D"
+}
 case class Order(client: String,
                  op: String,
                  sec: String,
