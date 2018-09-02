@@ -7,8 +7,8 @@ import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class ClientSpec
-    extends TestKit(ActorSystem("MySpec"))
+class ActorSpec
+    extends TestKit(ActorSystem("ActorSpec"))
     with ImplicitSender
     with WordSpecLike
     with Matchers
